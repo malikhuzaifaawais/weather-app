@@ -38,20 +38,7 @@ function App() {
   }
 
   // To search location
-  let locationAPI = `http://api.weatherapi.com/v1/search.json?key=1a8f326782e84a78ad0160730230905&q=${searchValue}`;
-  const fetchLocation = async (url) => {
-    try {
-      const locationRes = await fetch(url);
-      const locationData = await locationRes.json();
-      // console.log(locationData);
-      setCity(locationData[0].name);
-      setCountry(locationData[0].country);
-      setRegion(locationData[0].region);
-      // console.log(locationData[0].name);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  
 
 
   // to fetch current weather data
@@ -122,16 +109,41 @@ function App() {
   };
 
   // To fetch the week forcasting
-  let forcastingAPI = `http://api.weatherapi.com/v1/forecast.json?key=1a8f326782e84a78ad0160730230905&q=${searchValue}&days=7&aqi=no&alerts=no`
   
-
+  
+  let forcastingAPI = `http://api.weatherapi.com/v1/forecast.json?key=1a8f326782e84a78ad0160730230905&q=${searchValue}&days=7&aqi=no&alerts=no`
   useEffect(() => {
     fetchApiData(API);
   }, [API]);
 
+  let locationAPI = `http://api.weatherapi.com/v1/search.json?key=1a8f326782e84a78ad0160730230905&q=${searchValue}`;
   useEffect(() => {
-    fetchLocation(locationAPI);
+    const fetchLocation = async () => {
+    try {
+      const locationRes = await fetch(locationAPI);
+      const locationData = await locationRes.json();
+      // console.log(locationData);
+      setCity(locationData[0].name);
+      setCountry(locationData[0].country);
+      setRegion(locationData[0].region);
+      // console.log(locationData[0].name);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  fetchLocation();
   }, [locationAPI])
+  /* 
+  const fetchData = async () => {
+  try {
+    const response = await fetch('https://api.example.com/data');
+    const jsonData = await response.json();
+    setData(jsonData);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};
+  */
 
   useEffect(() => {
     fetchForcasting(forcastingAPI);
