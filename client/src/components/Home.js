@@ -19,15 +19,15 @@ function App() {
 
   // Current data
   // const [data, setData] = useState("");
-  const [time, setTime] = useState("");
-  const [temp, setTemp] = useState("11");
+  const [time, setTime] = useState("12:00");
+  const [temp, setTemp] = useState("27");
   const [cloud, setCloud] = useState("0");
-  const [date, setDate] = useState("0");
+  const [date, setDate] = useState("12-May-2023");
   
   // Location data
-  const [city, setCity] = useState("");
-  const [country, setCountry] = useState("");
-  const [region, setRegion] = useState("0");
+  const [city, setCity] = useState("Islamabad");
+  const [country, setCountry] = useState("Pakistan");
+  const [region, setRegion] = useState("");
 
   
   // Getting search input
@@ -75,17 +75,6 @@ function App() {
           var mydate = day.date;
           var weekDayName =  moment(mydate).format('dddd').slice(0,3);
           let temp = day.day.avgtemp_c;
-          // let cloud = day.hour[0].cloud;
-          // let image;
-          // if (cloud > 85) {
-          //   image = heavyRain;
-          // } else if (cloud > 65) {
-          //   image = lightRain;
-          // } else if (cloud > 40) {
-          //   image = onlyCloud;
-          // } else {
-          //   image = sun;
-          // }
         return (
           <div className="weeks-data">
             <p className="margin-0 weeks-day-name">{weekDayName}</p>
