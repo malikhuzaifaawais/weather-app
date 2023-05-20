@@ -42,7 +42,7 @@ function App() {
 
 
   // to fetch current weather data
-  let API = `http://api.weatherapi.com/v1/current.json?key=1a8f326782e84a78ad0160730230905&q=${searchValue}&aqi=no`;
+  let API = `https://api.weatherapi.com/v1/current.json?key=1a8f326782e84a78ad0160730230905&q=${searchValue}&aqi=no`;
   const fetchApiData = async (url) => {
     try {
       const res = await fetch(url);
@@ -111,12 +111,12 @@ function App() {
   // To fetch the week forcasting
   
   
-  let forcastingAPI = `http://api.weatherapi.com/v1/forecast.json?key=1a8f326782e84a78ad0160730230905&q=${searchValue}&days=7&aqi=no&alerts=no`
+  let forcastingAPI = `https://api.weatherapi.com/v1/forecast.json?key=1a8f326782e84a78ad0160730230905&q=${searchValue}&days=7&aqi=no&alerts=no`
   useEffect(() => {
     fetchApiData(API);
   }, [API]);
 
-  let locationAPI = `http://api.weatherapi.com/v1/search.json?key=1a8f326782e84a78ad0160730230905&q=${searchValue}`;
+  let locationAPI = `https://api.weatherapi.com/v1/search.json?key=1a8f326782e84a78ad0160730230905&q=${searchValue}`;
   useEffect(() => {
     const fetchLocation = async () => {
     try {
